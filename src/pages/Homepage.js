@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import DashboardContainer from "../components/DashboardContainer";
 import styled from "styled-components";
@@ -14,6 +16,12 @@ const HomepageRoot = styled.div`
 `;
 
 const HomepageLaptopScreenSize = () => {
+  const navigate = useNavigate();
+
+  const onFrameLinkClick = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
   return (
     <HomepageRoot>
       <Navbar />

@@ -30,11 +30,15 @@ const PlaylistAddCheckParentRoot = styled.a`
     padding-right: var(--padding-3xs);
     box-sizing: border-box;
   }
+  cursor: ${(p) => p.frameACursor};
 `;
 
-const Nav = ({ icon, navname }) => {
+const Nav = ({ icon, navname, onFrameLinkClick, frameACursor }) => {
   return (
-    <PlaylistAddCheckParentRoot>
+    <PlaylistAddCheckParentRoot
+      onClick={onFrameLinkClick}
+      frameACursor={frameACursor}
+    >
       <PlaylistAddCheckIcon alt="" src={icon} />
       <Presence>{navname}</Presence>
     </PlaylistAddCheckParentRoot>

@@ -61,12 +61,11 @@ export default createGlobalStyle`
 --gap-base: 1rem;
 --gap-41xl: 3.75rem;
 --gap-0: 0rem;
---gap-281xl: 18.75rem;
+--gap-61xl: 5rem;
 --gap-261xl: 17.5rem;
 --gap-27xl: 2.88rem;
 --gap-58xl: 4.81rem;
 --gap-21xl: 2.5rem;
---gap-61xl: 5rem;
 --gap-4xl: 1.44rem;
 --gap-13xl: 2rem;
 --gap-5xs: 0.5rem;

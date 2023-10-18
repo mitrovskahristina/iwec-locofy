@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import NavActive from "./NavActive";
 import Nav from "./Nav";
@@ -59,7 +61,7 @@ const Navigationbar = styled.div`
   justify-content: flex-start;
   padding: var(--padding-xl) 0rem 0rem;
   box-sizing: border-box;
-  gap: var(--gap-281xl);
+  gap: var(--gap-61xl);
   @media screen and (max-width: 960px) {
     flex: 1;
     gap: var(--gap-261xl);
@@ -90,6 +92,12 @@ const NavbarcontainerRoot = styled.div`
 `;
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const onFrameLinkClick = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
   return (
     <NavbarcontainerRoot>
       <Navigationbar>
@@ -99,12 +107,30 @@ const Navbar = () => {
           </Logo>
           <Navbar1>
             <NavActive />
-            <Nav icon="/cast-for-education.svg" navname="Courses and Groups" />
-            <Nav icon="/groups-3.svg" navname="Students and Teachers" />
-            <Nav icon="/calendar-month.svg" navname="Classes schedule" />
+            <Nav
+              icon="/cast-for-education.svg"
+              navname="Courses and Groups"
+              frameACursor="unset"
+            />
+            <Nav
+              icon="/groups-3.svg"
+              navname="Students and Teachers"
+              frameACursor="unset"
+            />
+            <Nav
+              icon="/calendar-month.svg"
+              navname="Classes schedule"
+              frameACursor="unset"
+            />
             <Nav icon="/playlist-add-check.svg" navname="Presence" />
           </Navbar1>
         </Navbarlogo>
+        <Nav
+          icon="/reply.svg"
+          navname="Log Out"
+          onFrameLinkClick={onFrameLinkClick}
+          frameACursor="pointer"
+        />
         <PersonContainer />
       </Navigationbar>
     </NavbarcontainerRoot>
