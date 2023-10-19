@@ -1,9 +1,7 @@
 import LoginForm1 from "./LoginForm1";
 import styled from "styled-components";
-import LogInForm from "./LogInForm";
 import { useNavigate } from "react-router-dom";
-import { signInWithGoogle } from "../firebase";
-import { useCallback } from "react";
+
 
 const FormcontainerRoot = styled.div`
   flex: 1;
@@ -35,16 +33,16 @@ const FormcontainerRoot = styled.div`
 const FormContainer = () => {
   const navigate = useNavigate();
 
-  const onSecondaryButtonClick = useCallback(() => {
-    return signInWithGoogle()
-      .then((result) => {
-        navigate("/homepage");
-        console.log("Result" + result.user);
-      })
-      .catch((error) => {
-        "Error:" + error;
-      });
-  }, [navigate]);
+  // const onSecondaryButtonClick = useCallback(() => {
+  //   return signInWithGoogle()
+  //     .then((result) => {
+  //       navigate("/homepage");
+  //       console.log("Result" + result.user);
+  //     })
+  //     .catch((error) => {
+  //       "Error:" + error;
+  //     });
+  // }, [navigate]);
 
   return (
     <FormcontainerRoot>
