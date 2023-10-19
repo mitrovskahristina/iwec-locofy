@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import styled from "styled-components";
 import LogInForm from "./LogInForm";
 import { useNavigate } from "react-router-dom";
+import { signInWithGoogle } from "../firebase";
 
 const ReadyToDive = styled.div`
   position: relative;
@@ -181,7 +182,14 @@ const FormContainer = () => {
   const navigate = useNavigate();
 
   const onSecondaryButtonClick = useCallback(() => {
-    navigate("/homepage");
+    return signInWithGoogle()
+      .then((result) => {
+        navigate("/homepage");
+        console.log("Result" + result.user);
+      })
+      .catch((error) => {
+        "Error:" + error;
+      });
   }, [navigate]);
 
   return (
